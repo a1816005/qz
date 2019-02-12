@@ -1,0 +1,32 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+        StringBuffer str = new StringBuffer("We Are Happy");
+
+        String result =  replaceSpace(str);
+
+        System.out.println(result);
+
+    }
+
+    public static String replaceSpace(StringBuffer str) {
+
+        //用indexOf判断字符串中是否包含" "空格的下标位置
+        int index = str.indexOf(" ");
+        //如果获得的位置为-1则不存在
+        while(index!=-1){
+        //不为-1时进入循环
+        //替换字符串中的空格所在位置
+            str.replace(index,index+1,"%20");
+        //再次判断是否存在下一个空格所在位置
+            index = str.indexOf(" ",index);
+
+        }
+        //返回字符串
+        String result = str.toString();
+        return result;
+    }
+
+
+}
